@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ボディシート 商品画像リファレンス</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    padding: 40px 20px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .header p {
+    color: #888;
+    font-size: 14px;
+  }
+  .brand-section {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+  }
+  .brand-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #222;
+  }
+  .brand-name {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .brand-maker {
+    font-size: 13px;
+    color: #999;
+  }
+  .brand-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .tag-men { background: #e3f2fd; color: #1565c0; }
+  .tag-women { background: #fce4ec; color: #c62828; }
+  .tag-unisex { background: #f3e5f5; color: #6a1b9a; }
+  .tag-teen { background: #e8f5e9; color: #2e7d32; }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  a.product-card {
+    display: block;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  a.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  .product-img-wrap {
+    background: #fafafa;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    position: relative;
+  }
+  .product-img-wrap img {
+    max-width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+  }
+  .product-img-wrap::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='2'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E") no-repeat center;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  a.product-card:hover .product-img-wrap::after {
+    opacity: 1;
+  }
+  .product-info {
+    padding: 12px 16px 16px;
+  }
+  .product-name {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .product-detail {
+    font-size: 11px;
+    color: #999;
+    line-height: 1.4;
+  }
+  .sub-heading {
+    font-size: 15px;
+    font-weight: 600;
+    color: #555;
+    margin: 24px 0 12px;
+    padding-left: 12px;
+    border-left: 3px solid #ccc;
+  }
+  .source-link {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 4px;
+  }
+  .source-link a {
+    color: #999;
+    text-decoration: none;
+  }
+  .source-link a:hover { text-decoration: underline; }
+  .stats {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  .stat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .stat-num {
+    font-size: 32px;
+    font-weight: 700;
+    color: #222;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
+    color: #bbb;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>ボディシート 商品画像リファレンス</h1>
+  <p>主要ブランド 9社 / 全商品ラインナップ / 2026年3月時点</p>
+</div>
+
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-num">9</div>
+    <div class="stat-label">ブランド</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">40+</div>
+    <div class="stat-label">商品バリエーション</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">5</div>
+    <div class="stat-label">メーカー</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">3</div>
+    <div class="stat-label">カテゴリ（メンズ/レディース/ユニセックス）</div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 1. GATSBY（ギャツビー）— マンダム -->
+<!-- ============================================ -->
+<div class="brand-section">
+  <div class="brand-header">
+    <span class="brand-name">GATSBY（ギャツビー）</span>
+    <span class="brand-maker">マンダム</span>
+    <span class="brand-tag tag-men">MEN</span>
+  </div>
+
+  <div class="sub-heading">アイスデオドラント ボディペーパー — 超クール肌が持続</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.gatsby.jp/product/bodycare/bodypaper/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.gatsby.jp/img/product/paper/2026ss/bp/2026ss_bp_01.png" alt="アイスシトラス" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">アイスデオドラント ボディペーパーO<br>アイスシトラス</div>
+        <div class="product-detail">医薬部外品 / ボタニカル繊維100%メッシュ柄シート</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.gatsby.jp/product/bodycare/bodypaper/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.gatsby.jp/img/product/paper/2026ss/bp/2026ss_bp_02.png" alt="アイスフルーティ" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">アイスデオドラント ボディペーパーO<br>アイスフルーティ</div>
+        <div class="product-detail">医薬部外品 / ボタニカル繊維100%メッシュ柄シート</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.gatsby.jp/product/bodycare/bodypaper/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.gatsby.jp/img/product/paper/2026ss/bp/2026ss_bp_03.png" alt="フリーズピーチ" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">アイスデオドラント ボディペーパーO<br>フリーズピーチ</div>
+        <div class="product-detail">医薬部外品 / ボタニカル繊維100%メッシュ柄シート</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.gatsby.jp/product/bodycare/bodypaper/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.gatsby.jp/img/product/paper/2026ss/bp/2026ss_bp_09.png" alt="キンモクセイ" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">アイスデオドラント ボディペーパーO<br>キンモクセイ</div>
+        <div class="product-detail">医薬部外品 / ボタニカル繊維100%メッシュ柄シート</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.gatsby.jp/product/bodycare/bodypaper/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.gatsby.jp/img/product/paper/2026ss/bp/2026ss_bp_04.png" alt="アイスシャボン" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">アイスデオドラント ボディペーパーO<br>アイスシャボン</div>
+        <div class="product-detail">医薬部外品 / ボタニカル繊維100%メッシュ柄シート</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.gatsby.jp/product/bodycare/bodypaper/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.gatsby.jp/img/product/paper/2022ss/bp/2022ss_bp_05.png" alt="無香料" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">アイスデオドラント ボディペーパーN<br>無香料</div>
+        <div class="product-detail">医薬部外品 / ボタニカル繊維100%メッシュ柄シート</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="sub-heading">さらさらデオドラント ボディペーパー — 超サラサラ肌が持続</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.gatsby.jp/product/bodycare/bodypaper/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.gatsby.jp/img/product/paper/2026ss/bp/2026ss_bp_06.png" alt="クールシトラス" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">さらさらデオドラント ボディペーパー<br>クールシトラス</div>
+        <div class="product-detail">医薬部外品 / ボタニカル繊維100%メッシュ柄シート</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.gatsby.jp/product/bodycare/bodypaper/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.gatsby.jp/img/product/paper/2026ss/bp/2026ss_bp_07.png" alt="フレッシュシャボン" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">さらさらデオドラント ボディペーパー<br>フレッシュシャボン</div>
+        <div class="product-detail">医薬部外品 / ボタニカル繊維100%メッシュ柄シート</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="sub-heading">バイオコアデオドラント ボディペーパー — 殺菌成分高配合</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.gatsby.jp/product/bodycare/bodypaper/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.gatsby.jp/img/product/paper/2026ss/bp/2026ss_bp_08.png" alt="バイオコア無香性" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">バイオコアデオドラント ボディペーパー<br>無香性</div>
+        <div class="product-detail">医薬部外品 / 殺菌成分高配合でニオイを長時間抑える</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 2. ビオレZero — 花王 -->
+<!-- ============================================ -->
+<div class="brand-section">
+  <div class="brand-header">
+    <span class="brand-name">ビオレZero</span>
+    <span class="brand-maker">花王</span>
+    <span class="brand-tag tag-women">WOMEN</span>
+  </div>
+
+  <div class="sub-heading">汗ベタ解放シート — 超さらさらタイプ（23×20cm）</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.kao.co.jp/biorezero/sheets/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/biorezero/sheets/lineup_sara_soap.png" alt="せっけんの香り" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">汗ベタ解放シート 超さらさら<br>やさしいせっけんの香り</div>
+        <div class="product-detail">20枚入/10枚入 / 持続型パウダーヴェールEX</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.kao.co.jp/biorezero/sheets/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/biorezero/sheets/lineup_sara_floral.png" alt="フローラルブーケ" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">汗ベタ解放シート 超さらさら<br>透明感のあるフローラルブーケの香り</div>
+        <div class="product-detail">20枚入 / 持続型パウダーヴェールEX</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.kao.co.jp/biorezero/sheets/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/biorezero/sheets/lineup_sara_reglar.png" alt="無香性" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">汗ベタ解放シート 超さらさら<br>無香性</div>
+        <div class="product-detail">20枚入 / 持続型パウダーヴェールEX</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="sub-heading">汗ベタ解放シート — ひんやりCOOLタイプ（冷感30%UP）</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.kao.co.jp/biorezero/sheets/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/biorezero/sheets/lineup_cool_soap.png" alt="COOLせっけん" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">汗ベタ解放シート COOL<br>さわやかなせっけんの香り</div>
+        <div class="product-detail">20枚入 / ひんやり成分30%UP</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.kao.co.jp/biorezero/sheets/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/biorezero/sheets/lineup_cool_white.png" alt="COOLホワイトブーケ" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">汗ベタ解放シート COOL<br>涼やかなホワイトブーケの香り</div>
+        <div class="product-detail">20枚入 / ひんやり成分30%UP</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.kao.co.jp/biorezero/sheets/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/biorezero/sheets/lineup_cool_reglar.png" alt="COOL無香性" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">汗ベタ解放シート COOL<br>無香性</div>
+        <div class="product-detail">20枚入 / ひんやり成分30%UP</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="sub-heading">汗ベタ解放シート — うるおいタイプ（化粧水成分in）</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.kao.co.jp/biorezero/sheets/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/biorezero/sheets/lineup_uruoi_soap.png" alt="うるおいせっけん" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">汗ベタ解放シート うるおい<br>すがすがしいせっけんの香り</div>
+        <div class="product-detail">20枚入 / 乾燥しがちな肌に / 秋冬向け</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="sub-heading">さらさらパウダーシート（15×10cm 携帯サイズ）</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.kao.co.jp/biorezero/sheets/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/biorezero/sheets/sarasara_lineup_soap.png" alt="パウダーせっけん" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">さらさらパウダーシート<br>やさしいせっけんの香り</div>
+        <div class="product-detail">10枚入 / 凸凹ウェーブで汚れキャッチ</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.kao.co.jp/biorezero/sheets/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/biorezero/sheets/sarasara_lineup_floral.png" alt="パウダーフローラル" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">さらさらパウダーシート<br>可憐なフローラルの香り</div>
+        <div class="product-detail">10枚入 / 凸凹ウェーブで汚れキャッチ</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.kao.co.jp/biorezero/sheets/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/biorezero/sheets/sarasara_lineup_cool.png" alt="パウダーCOOL" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">さらさらパウダーシート<br>COOLタイプ 無香性</div>
+        <div class="product-detail">10枚入 / 凸凹ウェーブで汚れキャッチ</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="sub-heading">ビオレ冷シート（23×20cm）— 肌温度-3℃</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.kao.co.jp/bioresheets/item/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/bioresheets/item/hiyasheet_main.png" alt="冷シート" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">ビオレ冷シート</div>
+        <div class="product-detail">20枚入 / 無香性・リフレッシュフローラル・ももせっけん / パウダー不使用</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 3. メンズビオレ — 花王 -->
+<!-- ============================================ -->
+<div class="brand-section">
+  <div class="brand-header">
+    <span class="brand-name">メンズビオレ</span>
+    <span class="brand-maker">花王</span>
+    <span class="brand-tag tag-men">MEN</span>
+  </div>
+
+  <div class="sub-heading">顔もふけるボディシートPRO — 長時間サラ肌KEEP</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.kao.co.jp/mensbiore/lineup/bodysheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/mensbiore/lineup/bodysheet/260202/pc_bodysheet_pic01.png" alt="PRO ホワイトサボン" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">顔もふけるボディシートPRO<br>ホワイトサボン</div>
+        <div class="product-detail">26枚 / 260×200mm / 汗蒸散パウダー配合</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.kao.co.jp/mensbiore/lineup/bodysheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/mensbiore/lineup/bodysheet/260202/pc_bodysheet_pic02.png" alt="PRO アイスサボン" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">顔もふけるボディシートPRO<br>アイスサボン（クール）</div>
+        <div class="product-detail">26枚 / 260×200mm / 汗蒸散パウダー配合</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.kao.co.jp/mensbiore/lineup/bodysheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/mensbiore/lineup/bodysheet/260202/pc_bodysheet_pic03.png" alt="PRO フルーティーベリー" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">顔もふけるボディシートPRO<br>フルーティーベリー</div>
+        <div class="product-detail">26枚 / 260×200mm / 汗蒸散パウダー配合</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="sub-heading">顔もふけるボディシート — 大判・液たっぷり（全5種）</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.kao.co.jp/mensbiore/lineup/bodysheet/" target="_blank" style="grid-column: 1 / -1;">
+      <div class="product-img-wrap" style="padding: 24px;">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/mensbiore/lineup/bodysheet/20200302/pc/pc_products_lineup.png" alt="顔もふけるボディシート ラインナップ" loading="lazy" style="max-height: 280px;">
+      </div>
+      <div class="product-info">
+        <div class="product-name">顔もふけるボディシート ラインナップ</div>
+        <div class="product-detail">28枚 / 260×200mm / シトラス・石けん・クール・無香性・肌ケア</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="sub-heading">ボディシート — 極冷感・超洗浄</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.kao.co.jp/mensbiore/lineup/bodysheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/mensbiore/lineup/bodysheet/240205/pc_bodysheet_pic06.png" alt="極冷感" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">ボディシート<br>極冷感タイプ</div>
+        <div class="product-detail">26枚 / 250×200mm</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.kao.co.jp/mensbiore/lineup/bodysheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/mensbiore/lineup/bodysheet/260202/pc_bodysheet_pic07.png" alt="超洗浄" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">ボディシート<br>超洗浄タイプ</div>
+        <div class="product-detail">26枚 / 250×200mm</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 4. エージーデオ24 — ファイントゥデイ -->
+<!-- ============================================ -->
+<div class="brand-section">
+  <div class="brand-header">
+    <span class="brand-name">エージーデオ24（Ag DEO 24）</span>
+    <span class="brand-maker">ファイントゥデイ</span>
+    <span class="brand-tag tag-unisex">UNISEX</span>
+  </div>
+
+  <div class="sub-heading">クリアシャワーシート — 銀含有アパタイト配合</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://brand.finetoday.com/jp/ag/sheet/clear_shower_sheet.html" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/ag/sheet/img/detail_sheet_01_main.png" alt="無香性" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">クリアシャワーシートN<br>無香性</div>
+        <div class="product-detail">30枚/10枚 / 180×110mm / ヒアルロン酸パウダー配合</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://brand.finetoday.com/jp/ag/sheet/clear_shower_sheet.html" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/ag/sheet/img/detail_sheet_02_main.png" alt="フレッシュサボン" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">クリアシャワーシートN<br>フレッシュサボン</div>
+        <div class="product-detail">30枚/10枚 / 180×110mm / ナチュラルなせっけんの香り</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://brand.finetoday.com/jp/ag/sheet/clear_shower_sheet.html" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/ag/sheet/img/detail_sheet_03_main.png" alt="クール" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">クリアシャワーシートN<br>クール</div>
+        <div class="product-detail">30枚/10枚 / 大判250×200mm / 肌表面温度-3.2℃</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 5. SEA BREEZE（シーブリーズ）— ファイントゥデイ -->
+<!-- ============================================ -->
+<div class="brand-section">
+  <div class="brand-header">
+    <span class="brand-name">SEA BREEZE（シーブリーズ）</span>
+    <span class="brand-maker">ファイントゥデイ</span>
+    <span class="brand-tag tag-teen">TEEN / UNISEX</span>
+  </div>
+
+  <div class="sub-heading">フェイス＆ボディシート — 大判1枚で顔も体も（25×20cm）</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/img/new/img_sheet01.png" alt="ソープ" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">フェイス＆ボディシート<br>Soap（ソープ）</div>
+        <div class="product-detail">30枚入 / さわやかで清涼感のある定番せっけんの香り</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/img/new/img_sheet02.png" alt="ヴァーベナクール" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">フェイス＆ボディシート<br>Verbena Cool</div>
+        <div class="product-detail">30枚入 / レモンのようなフレッシュ感</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/img/new/img_sheet03.png" alt="無香料" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">フェイス＆ボディシート<br>Unscented（無香料）</div>
+        <div class="product-detail">30枚入 / 香りの気にならない無香タイプ</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/img/new/img_sheet04.png" alt="フレッシュサボン" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">フェイス＆ボディシート<br>Fresh Savon</div>
+        <div class="product-detail">30枚入 / 大人な好印象フレッシュサボン</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/img/new/img_sheet05.png" alt="クリアボタニカル" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">フェイス＆ボディシート<br>Clear Botanical</div>
+        <div class="product-detail">30枚入 / みずみずしい透明感のある香り</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="sub-heading">アイスタイプ — 拭くだけで-3℃</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/img/new/img_sheet06.png" alt="シトラスシャーベット" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">フェイス＆ボディシート<br>Citrus Sherbet</div>
+        <div class="product-detail">30枚入 / ひんやり爽やかでジューシーな香り</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/seabreeze/products/body_sheet/img/new/img_sheet07.png" alt="フローズンミント" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">フェイス＆ボディシート<br>Frozen Mint</div>
+        <div class="product-detail">30枚入 / ひんやり涼やかで清潔感</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 6. Ban — ライオン -->
+<!-- ============================================ -->
+<div class="brand-section">
+  <div class="brand-header">
+    <span class="brand-name">Ban</span>
+    <span class="brand-maker">ライオン</span>
+    <span class="brand-tag tag-women">WOMEN</span>
+  </div>
+
+  <div class="sub-heading">さっぱり感PREMIUMシート — 肌触りなめらか高拭き取り力</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.lion.co.jp/ja/products/335" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://doc.lion.co.jp/uploads/grn/product/normal_image/335/BanShowerSheets.png" alt="Ban PREMIUMシート" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">さっぱり感PREMIUMシート</div>
+        <div class="product-detail">パウダーinタイプ / クールタイプ / ノンパウダータイプ</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 7. DEOCO（デオコ）— ロート製薬 -->
+<!-- ============================================ -->
+<div class="brand-section">
+  <div class="brand-header">
+    <span class="brand-name">DEOCO（デオコ）</span>
+    <span class="brand-maker">ロート製薬</span>
+    <span class="brand-tag tag-women">WOMEN</span>
+  </div>
+
+  <div class="sub-heading">ボディクレンズシート — オトナ女性のニオイケア</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.shop.rohto.co.jp/category/skincare/deoco/165896.html" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.shop.rohto.co.jp/on/demandware.static/-/Sites-all-master-catalog/default/dwe9d464d0/images/product/48_deoco/165896_1.jpg" alt="DEOCO ボディクレンズシート" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">ボディクレンズシート</div>
+        <div class="product-detail">36枚入 / 550円 / 白泥＋さらさらパウダー / ビタミンC誘導体 / スウィートフローラルの香り</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://www.shop.rohto.co.jp/category/skincare/deoco/165896.html" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.shop.rohto.co.jp/on/demandware.static/-/Sites-all-master-catalog/default/dw0f867b53/images/product/48_deoco/165896_2.jpg" alt="DEOCO ボディクレンズシート裏" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">ボディクレンズシート<br>（パッケージ裏面）</div>
+        <div class="product-detail">成分表示・使用方法</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 8. LUCIDO（ルシード）— マンダム -->
+<!-- ============================================ -->
+<div class="brand-section">
+  <div class="brand-header">
+    <span class="brand-name">LUCIDO（ルシード）</span>
+    <span class="brand-maker">マンダム</span>
+    <span class="brand-tag tag-men">MEN 40+</span>
+  </div>
+
+  <div class="sub-heading">カラダと頭皮のデオペーパー — 40才からのニオイケア</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://www.lucido.jp/products/smellcare/paper/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://www.lucido.jp/assets/img/products/smellcare/paper.png" alt="ルシード デオペーパー" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">カラダと頭皮のデオペーパー</div>
+        <div class="product-detail">30枚入 / 無香料 / 厚手 / 体〜頭皮まで使える</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 9. エージーデオ24 MEN — ファイントゥデイ -->
+<!-- ============================================ -->
+<div class="brand-section">
+  <div class="brand-header">
+    <span class="brand-name">エージー24 MEN</span>
+    <span class="brand-maker">ファイントゥデイ</span>
+    <span class="brand-tag tag-men">MEN</span>
+  </div>
+
+  <div class="sub-heading">メンズシート — 男のニオイ対策</div>
+  <div class="product-grid">
+    <a class="product-card" href="https://brand.finetoday.com/jp/ag/mens_sheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/ag/mens_sheet/img/detail_mens_sheet_01_main.png" alt="メンズシート無香性" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">メンズシート フェイス＆ボディ<br>無香性</div>
+        <div class="product-detail">30枚入 / 銀含有アパタイト配合</div>
+      </div>
+    </a>
+    <a class="product-card" href="https://brand.finetoday.com/jp/ag/mens_sheet/" target="_blank">
+      <div class="product-img-wrap">
+        <img src="https://brand.finetoday.com/jp/ag/mens_sheet/img/detail_mens_sheet_02_main.png" alt="メンズシート シトラス" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">メンズシート フェイス＆ボディ<br>シトラス</div>
+        <div class="product-detail">30枚入 / 銀含有アパタイト / ヒアルロン酸パウダー</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="footer">
+  <p>ボディシート商品画像リファレンス — リサーチ用 / 2026-03-04 作成</p>
+  <p>画像はすべて各メーカー公式サイトから参照。商用利用時は各社の利用規約を確認してください。</p>
+</div>
+
+</body>
+</html>
